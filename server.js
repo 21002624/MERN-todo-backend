@@ -2,6 +2,7 @@
 const mongoose = require('mongoose');
 const express = require('express');
 const cors = require('cors');
+require('dotenv').config(); // Load environment variables
 
 //create an express instance
 const app = express();
@@ -12,7 +13,7 @@ app.use(cors())
 // let todos =[];
 
 //connecting mongo db
-mongoose.connect('mongodb://127.0.0.1:27017/mern-app')
+mongoose.connect(process.env.MONGO_URL)
 .then(()=>{
     console.log('DB connected')
 })
